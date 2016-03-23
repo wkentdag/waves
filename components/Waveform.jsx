@@ -19,7 +19,7 @@ let Waveform = React.createClass({
     let ctx = canvas.getContext('2d');
     let lineOpacity = width / leftChannel.length;
     ctx.save();
-    ctx.fillStyle = 'rgb(255,0,200)' ;
+    ctx.fillStyle = 'rgb(0,0,0)' ;
     ctx.fillRect(0,0,width,height);
     ctx.strokeStyle = '#121';
     ctx.globalCompositeOperation = 'lighter';

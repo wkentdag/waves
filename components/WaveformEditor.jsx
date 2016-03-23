@@ -5,11 +5,12 @@ let WaveformEditor = React.createClass({
   render: function() {
     return (
       <div id="WaveformEditor" className="container">
-        hi im the waveform editor
         <Waveform
-          height={300} width={300}
+          id="Waveform"
+          height={600} width={1200}
           buffer={this.props.buffer}
         />
+        <p>hi im the waveform editor</p>
       </div>
     )
   }
