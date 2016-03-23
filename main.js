@@ -1,3 +1,6 @@
+require('babel-register');
+require('dotenv').config();
+
 var app = require('app');
 var BrowserWindow = require('browser-window');
 
@@ -12,7 +15,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 1360, height: 800});
 
-  mainWindow.loadUrl('file://' + __dirname + '/public/index.html');
+  mainWindow.loadUrl('file://' + __dirname + '/static/index.html');
 
   mainWindow.openDevTools();
 

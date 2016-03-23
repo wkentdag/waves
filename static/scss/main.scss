@@ -1,0 +1,86 @@
+//  variables
+$font-main: monospace;
+$container-border: 2px solid black;
+$container-margin: 4px;
+$black: black;
+$yellow: yellow;
+$pink: pink;
+$button-size: 10px;
+$menu-height: 30px;
+
+//  font
+* {
+  font-family: $font-main;
+}
+
+//  generic styles
+.container {
+  border: $container-border;
+  margin: $container-margin;
+}
+
+.menu  {
+  position: fixed;
+  top: 0;
+  width: 1200px;
+  margin: 0;
+  background-color: $pink;
+  border: $container-border;
+  z-index: 99;
+  height: $menu-height;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  margin-top: $menu-height;
+  padding-top: 5px;
+}
+
+//  ids
+
+#SourceSelector {
+  float: left;
+  min-width: 300px;
+  height: 100%;
+  min-height: 500px;
+  background-color: $yellow;
+  position: relative;
+}
+
+#fileBrowser {
+  height: 500px;
+}
+
+#WaveformEditor {
+  height: 600px;
+}
+
+//  elements
+button {
+  border: $container-border;
+  background-color: white;
+  padding: $button-size;
+  margin: 2px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox'] + label {
+  border: $container-border;
+  background-color: white;
+  padding: 5px;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+}
+// input[type="checkbox"].checked + label span {
+//   background-color: black;
+// }
+
+canvas {
+  background-color: white;
+  border: $container-border;
+}
