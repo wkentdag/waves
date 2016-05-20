@@ -22,7 +22,9 @@ $menu-height: 30px;
 .menu  {
   position: fixed;
   top: 0;
-  width: 1200px;
+  left: 0;
+  // min-width: ;
+  width:100%;
   margin: 0;
   background-color: $pink;
   border: $container-border;
@@ -46,6 +48,7 @@ $menu-height: 30px;
   min-height: 500px;
   background-color: $yellow;
   position: absolute;
+  z-index:100;
 }
 
 #fileBrowser {
@@ -54,6 +57,10 @@ $menu-height: 30px;
 
 #WaveformEditor {
   // height: 600px;
+  position: fixed;
+  top: $menu-height;
+  left: 0;
+  margin-left: 0;
   height: 100%;
   width: 100%;
   min-height: 650px;

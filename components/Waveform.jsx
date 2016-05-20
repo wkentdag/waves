@@ -2,6 +2,9 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 let Waveform = React.createClass({
+  zoom: function() {
+    console.log('cmon and zoooom!!');
+  },
   draw: function(buffer) {
     if (!buffer) {
       console.log('exiting draw function - no buffer detected');
@@ -15,13 +18,13 @@ let Waveform = React.createClass({
     //  setup canvas
     let width = this.props.width;
     let height = this.props.height;
-    let canvas = ReactDOM.findDOMNode(this.refs.Waveform);
+    let canvas = this.state.canvas;
     let ctx = canvas.getContext('2d');
     let lineOpacity = width / leftChannel.length;
     ctx.save();
-    ctx.fillStyle = 'rgb(0,0,0)' ;
+    ctx.fillStyle = 'blue' ;
     ctx.fillRect(0,0,width,height);
-    ctx.strokeStyle = '#121';
+    ctx.strokeStyle = 'white';
     ctx.globalCompositeOperation = 'lighter';
     ctx.translate(0, height / 2);
     ctx.globalAlpha = 0.06 ; // lineOpacity ;
@@ -40,7 +43,13 @@ let Waveform = React.createClass({
     console.log('done');
   },
   componentDidMount: function() {
-    this.draw(this.props.buffer);
+    if (this.props.buffer) {
+      this.setState({
+        canvas: ReactDOM.findDOMNode(this.refs.Waveform)
+      });
+      this.draw(this.props.buffer);
+
+    }
   },
   componentWillReceiveProps: function(nextProps) {
     if (nextProps.buffer) {
@@ -50,12 +59,19 @@ let Waveform = React.createClass({
   },
   getInitialState: function() {
     return {
-      buffer: null
+      buffer: null,
+      canvas: null
     }
   },
   render: function() {
     return (
-      <canvas height={this.props.height} width={this.props.width} ref="Waveform" ></canvas>
+      <canvas
+        height={this.props.height} width={this.props.width}
+        ref="Waveform"
+        onClick={this.zoom}
+      >
+
+      </canvas>
     )
   }
 });

@@ -21,6 +21,8 @@ let Waves = React.createClass({
       context.decodeAudioData(bufRequest.response, function(buffer) {
         //  create buffer, source, analyser, connect to destination
         this.setState({buffer: buffer});
+        console.log(buffer);
+        console.log(buffer.sampleRate);
 
         let source = context.createBufferSource();
         source.buffer = this.state.buffer;

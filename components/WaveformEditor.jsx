@@ -4,10 +4,10 @@ const Waveform = require('./Waveform.jsx');
 let WaveformEditor = React.createClass({
   render: function() {
     return (
-      <div id="WaveformEditor" className="container">
+      <div id="WaveformEditor">
         <Waveform
           id="Waveform"
-          height={600} width={1200}
+          height={window.innerHeight-30} width={window.innerWidth-3}
           buffer={this.props.buffer}
         />
         <p>hi im the waveform editor</p>
